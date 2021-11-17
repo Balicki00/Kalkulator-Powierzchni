@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.2, 2021-11-03T01:32:41. -->
+<!-- Written by QtCreator 5.0.2, 2021-11-15T14:33:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -237,9 +237,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">KalkulatorPowierzchni2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Marcin/Desktop/KalkulatorPowierzchni/KalkulatorPowierzchni.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Marcin/Desktop/KalkulatorPowierzchni/KalkulatorPowierzchni.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/KalkulatorPowierzchni/KalkulatorPowierzchni.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/KalkulatorPowierzchni/KalkulatorPowierzchni.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

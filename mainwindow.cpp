@@ -1,5 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <cmath>
+#include <iomanip>
+#include <sstream>
+#include <QFile>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -50,15 +55,47 @@ else if (ui->radioButton_7->isChecked()) {
 QString s = ui->textEdit->toPlainText();
     double value = s.toDouble();
 
-
-std::string obiekty[4]= { "cale","mosty","jardy","stopy" };
-    double ratio[4] = { 0.00065,2016,0.84,0.09};
-    double result = Oblicz(ratio[selected], ratio[selected2], value);
-std::string stringResult = std::to_string(value)+" " + obiekty[selected] +
-        "->" + obiekty[selected2] + " = " + std::to_string(result) + "\n";
-    QString res = QString::fromStdString(stringResult);
-    ui->textEdit_2->append(res);
+if(value<0){
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Błąd");
+    msgBox.setText("Liczba musi być większa od 0");
+    msgBox.exec();
     ui->textEdit->setText("");
+}
+else{
+    std::string obiekty[4]= { "cale","mosty","jardy","stopy" };
+        double ratio[4] = { 0.00065,2016,0.84,0.09};
+        double result = Oblicz(ratio[selected], ratio[selected2], value);
+
+
+         std::stringstream stream;
+         stream << std::fixed << std::setprecision(2) << result;
+         std::string resultString = stream.str();
+
+         std::stringstream stream2;
+         stream2 << std::fixed << std::setprecision(2) << value;
+         std::string valueString = stream2.str();
+
+
+
+         std::string stringResult =valueString +" " + obiekty[selected] +
+                 "->" + obiekty[selected2] + " = " + resultString + "\n";
+
+
+        QString res = QString::fromStdString(stringResult);
+        ui->textEdit_2->append(res);
+        ui->textEdit->setText("");
+        QFile plik("result.txt");
+
+        if (plik.open(QIODevice::WriteOnly | QIODevice::Append)) {
+        QTextStream stream(&plik);
+        stream<<res;
+
+        }
+    plik.close();
+
+
+}
 
 }
 
@@ -77,4 +114,3 @@ double MainWindow::Oblicz(double ratio1, double ratio2, double value) {
 
     return result;
 }
-
