@@ -5,6 +5,7 @@
 #include <sstream>
 #include <QFile>
 #include <QMessageBox>
+#include <QStandardPaths>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -85,7 +86,10 @@ else{
         QString res = QString::fromStdString(stringResult);
         ui->textEdit_2->append(res);
         ui->textEdit->setText("");
-        QFile plik("result.txt");
+
+
+        QString autoexec = QString("%1/BibliotekaObliczeń.txt").arg(QStandardPaths::writableLocation(QStandardPaths::DesktopLocation));
+        QFile plik(autoexec);
 
         if (plik.open(QIODevice::WriteOnly | QIODevice::Append)) {
         QTextStream stream(&plik);
